@@ -27,6 +27,7 @@ def detail(request, id):
     try:
         post = Article.objects.get(id=str(id))
         post.viewed()  # 更新浏览次数
+        category = categories.get(id=post.category_id)
         tags = post.tags.all()
         next_post = post.next_article()  # 上一篇文章对象
         prev_post = post.prev_article()  # 下一篇文章对象
@@ -38,6 +39,7 @@ def detail(request, id):
             'post': post,
             'tags': tags,
             'category_list': categories,
+            'category': category,
             'next_post': next_post,
             'prev_post': prev_post,
             'months': months
@@ -45,9 +47,9 @@ def detail(request, id):
     )
 
 
-def search_category(request, id):
-    posts = Article.objects.filter(category_id=str(id))
-    category = categories.get(id=str(id))
+def search_category(request, categoryname):
+    posts = Article.objects.filter(category__name=categoryname)
+    category = categories.get(name=categoryname)
     paginator = Paginator(posts, settings.PAGE_NUM)  # 每页显示数量
     try:
         page = request.GET.get('page')  # 获取URL中page参数的值

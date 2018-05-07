@@ -4,26 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} jbt Blog {% endblock %}</title>
+    <title>{% block title %}王皓魂的博客 (●'◡'●)ﾉ{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static "image/favicon.ico" %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/pure-min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/grids-responsive-min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
 </head>
 <body>
 <div id="layout" class="pure-g">
     <!--左侧边栏 开始-->
     <div class="sidebar pure-u-1 pure-u-md-1-4">
         <div class="header">
-            <h1 class="brand-title"><a href="{% url 'home' %}" style="text-decoration: none">金笔头博客</a></h1>
+            <h1 class="brand-title"><a href="{% url 'home' %}" class="brand-title" style="text-decoration: none">王皓魂的博客</a></h1>
             <br>
-            <h2 class="brand-tagline">Love Learning, Love Sharing...</h2>
+            <h2 class="brand-tagline">学自己想学的,真诚面对自己...</h2>
             <br>
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">
                         {% for category in category_list %}
-                            <a class="pure-button" href="{% url 'category_menu' id=category.id %}"
+                            <a class="pure-button" href="{% url 'category_menu' categoryname=category.name %}"
                                style="text-decoration: none">{{ category }}</a>
                         {% endfor %}&nbsp;
                     </li>
@@ -43,15 +45,15 @@
                 <br>
                 <ul class="nav-list">
                 <li>
-                    <a href="#" style="text-decoration: none">
-                        <i class="fa fa-weixin" style="font-size: 30px" aria-hidden="true" title="微信公众号"></i>
-                    </a>
+                    <!-- <a href="#" style="text-decoration: none"> -->
+                        <!-- <i class="fa fa-weixin" style="font-size: 30px" aria-hidden="true" title="微信公众号"></i> -->
+                    <!-- </a> -->
                     &nbsp;
-                    <a href=mailto:jinbitou@126.com style="text-decoration: none">
+                    <a href=mailto:hornewang@gmail.com style="text-decoration: none">
                         <i class="fa fa-envelope-o" style="font-size: 30px" aria-hidden="true" title="邮箱"></i>
                     </a>
                     &nbsp;
-                    <a href="https://github.com/leeyis/" style="text-decoration: none" title="Github"
+                    <a href="https://github.com/Wanghaohun" style="text-decoration: none" title="Github"
                        target="_blank">
                         <i class="fa fa-github" style="font-size: 34px" aria-hidden="true"></i>
                     </a>
@@ -59,6 +61,10 @@
                 </li>
             </ul>
             </nav>
+            <footer class="footer-copyright">
+            <a href="https://github.com/leeyis/jbt_blog">Forked from leeyis/jbt_blog</a>
+             <p>王皓魂版权所有，保留一切权利 · © 2018-2018 · 京ICP备17037587号</p>
+            </footer>
         </div>
     </div>
     <!--左侧边栏 结束-->

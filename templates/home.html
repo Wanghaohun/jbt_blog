@@ -13,7 +13,7 @@
                         <p class="post-meta">
                             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ post.pub_time |date:'Y-m-d' }}&nbsp;&nbsp;
                             <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{ post.views }}次浏览&nbsp;&nbsp;
-                            <i class="fa fa-list-alt"></i>&nbsp;{{ post.category }}&nbsp;&nbsp;
+                            <i class="fa fa-list-alt"></i>&nbsp;<a  href="/category/{{post.category}}"  >{{ post.category }}</a>&nbsp;&nbsp;
                         </p>
                     </header>
 
@@ -39,13 +39,13 @@
             {% if post_list.has_previous %}
                 <a class="footer" href="?page={{ post_list.previous_page_number }}"
                    style="text-decoration: none; float: left; padding-left: 1%">
-                    <i class="fa fa-angle-left"></i>&nbsp;&nbsp;上一页
+                    <i class="fa fa-angle-left"></i>&nbsp;&nbsp;<button class="pure-button">上一页</button>
                 </a>
             {% endif %}
             {% if post_list.has_next %}
                 <a class="footer" href="?page={{ post_list.next_page_number }}"
                    style="text-decoration: none; float: right; padding-right: 1%">
-                    下一页&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
+                    <button class="pure-button">下一页</button>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
                 </a>
             {% endif %}
         </div>
