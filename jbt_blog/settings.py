@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.blog',
     'django_summernote',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -207,3 +208,11 @@ JET_SIDE_MENU_ITEMS = [  # A list of application or custom item dicts
 
     ]},
 ]
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'jbt_blog.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

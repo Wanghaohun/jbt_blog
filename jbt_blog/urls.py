@@ -19,7 +19,6 @@ from apps.blog import views
 from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -31,6 +30,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    path('search/', views.MySearchView()),
 ]
 
 if settings.DEBUG:

@@ -189,9 +189,6 @@ h3 {
 .footer .pure-menu a:focus {
     background: none;
 }
-.footer-copyright{
-    margin-top: 0.5em;
-}
 @media (min-width: 48em) {
     .content {
         padding: 2em 3em 0;
@@ -255,4 +252,36 @@ div.go-top div.stick {
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
+}
+.search-form{
+    color:#3A3A3A;
+    text-align:center;
+}
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+     font-size: 110%;
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+     font-size: 110%;
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+     font-size: 110%;
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+    font-size: 110%;
 }

@@ -3,6 +3,7 @@ from apps.blog.models import Article, Category, Tag
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
 from django.conf import settings
+from haystack.views import SearchView
 
 categories = Category.objects.all()  # 获取全部的分类对象
 tags = Tag.objects.all()  # 获取全部的标签对象
@@ -103,4 +104,5 @@ def archives(request, year, month):
         'year_month': year+'年'+month+'月'
         }
     )
-
+class MySearchView(SearchView):
+    template = 'search.html'
