@@ -22,8 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = str(os.getenv('Blog_Secret_Key'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-Allow_Host=str(os.getenv('Blog_Allowed_Host_1'))
-ALLOWED_HOSTS = [Allow_Host,]
+Allow_Host_1=str(os.getenv('Blog_Allowed_Host_1'))
+Allow_Host_2=str(os.getenv('Blog_Allowed_Host_2'))
+Allow_Host_3=str(os.getenv('Blog_Allowed_Host_3'))
+ALLOWED_HOSTS = [Allow_Host_1,Allow_Host_2,Allow_Host_3,]
 
 
 # Application definition
