@@ -3,3 +3,6 @@ django-jet==1.0.7
 django-summernote==0.8.8.6
 pytz==2018.3
 feedparser==5.2.1
+django-haystack==2.8.1
+whoosh==2.7.4
+jieba==0.39
