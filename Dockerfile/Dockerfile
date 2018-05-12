@@ -25,6 +25,7 @@ RUN git clone https://github.com/Wanghaohun/jbt_blog.git
 
 #安装所需库
 WORKDIR /app/jbt_blog
+RUN pip3 install ipython
 RUN pip3 install -Ur requirements.txt
 RUN pip3 install gunicorn
 CMD ["/bin/bash"]
