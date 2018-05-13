@@ -28,6 +28,8 @@ COPY 'nginx.conf' '/etc/nginx/nginx.conf'
 WORKDIR /app/jbt_blog
 RUN mkdir /app/jbt_blog/log
 RUN mkdir /app/jbt_blog/log/nginx
+RUN touch /app/jbt_blog/log/access.log
+RUN touch /app/jbt_blog/log/error.log
 RUN pip3 install ipython
 RUN pip3 install -Ur requirements.txt
 RUN pip3 install gunicorn
