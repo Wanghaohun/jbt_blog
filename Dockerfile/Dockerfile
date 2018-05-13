@@ -23,7 +23,6 @@ WORKDIR /app
 
 #克隆项目到文件夹
 RUN git clone https://github.com/Wanghaohun/jbt_blog.git
-RUN 
 COPY 'nginx.conf' '/etc/nginx/nginx.conf'
 #安装所需库
 WORKDIR /app/jbt_blog
