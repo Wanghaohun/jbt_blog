@@ -26,10 +26,10 @@ RUN git clone https://github.com/Wanghaohun/jbt_blog.git
 COPY 'nginx.conf' '/etc/nginx/nginx.conf'
 #安装所需库
 WORKDIR /app/jbt_blog
-RUN mkdir /app/jbt_blog/log
-RUN mkdir /app/jbt_blog/log/nginx
-RUN touch /app/jbt_blog/log/nginx/access.log
-RUN touch /app/jbt_blog/log/nginx/error.log
+RUN mkdir /app/jbt_blog/jbt_blog/log
+RUN mkdir /app/jbt_blog/jbt_blog/log/nginx
+RUN touch /app/jbt_blog/jbt_blog/log/nginx/access.log
+RUN touch /app/jbt_blog/jbt_blog/log/nginx/error.log
 RUN pip3 install ipython
 RUN pip3 install -Ur requirements.txt
 RUN pip3 install gunicorn
