@@ -10,6 +10,7 @@ RUN apt-get update
 RUN apt-get -y install python3 
 RUN apt-get -y install python3-pip  
 RUN apt-get -y install git
+RUN apt-get -y install nginx
 
 # 用完包管理器后安排打扫卫生可以显著的减少镜像大小
 RUN apt-get clean \
@@ -22,13 +23,18 @@ WORKDIR /app
 
 #克隆项目到文件夹
 RUN git clone https://github.com/Wanghaohun/jbt_blog.git
-
+COPY '/jbt_blog/Dockerfile/nginx.conf' '/etc/nginx/nginx.conf'
 #安装所需库
 WORKDIR /app/jbt_blog
+RUN mkdir /jbt_blog/log
+RUN mkdir /jbt_blog/log/nginx
 RUN pip3 install ipython
 RUN pip3 install -Ur requirements.txt
 RUN pip3 install gunicorn
+RUN nginx -t
+RUN service nginx restart
 CMD ["/bin/bash"]
 
 # PORT 端口映射设置
 EXPOSE 8000
+EXPOSE 80
