@@ -47,7 +47,8 @@ h3 {
 }
 .brand-title,
 .brand-tagline {
-    margin: 0;
+    margin: 0px;
+    margin-top:-15px;
 }
 .brand-title {
     font-family: 'Ubuntu', sans-serif;
