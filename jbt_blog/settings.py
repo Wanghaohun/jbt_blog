@@ -147,7 +147,7 @@ SUMMERNOTE_CONFIG = {
 
     # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
     'styleWithSpan': False,
-
+    #'attachment_filesize_limit': custom_file_limit,
     # Change editor size
     'width': '80%',
     'height': '480',

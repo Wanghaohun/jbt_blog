@@ -10,8 +10,13 @@ RUN apt-get update
 RUN apt-get -y install python3 
 RUN apt-get -y install python3-pip  
 RUN apt-get -y install git
-RUN apt-get -y install nginx
 
+ADD http://nginx.org/download/nginx-1.9.15.tar.gz
+RUN tar zxvf nginx-1.9.15.tar.gz .
+RUN mkdir -p /usr/local/nginx
+RUN cd nginx-1.9.15 && ./configure --prefix=/usr/local/nginx && make && make install
+RUN rm -vf /usr/local/nginx/conf/nginx.conf
+COPY 'nginx.conf' '/usr/local/nginx/conf/nginx.conf'
 # 用完包管理器后安排打扫卫生可以显著的减少镜像大小
 RUN apt-get clean \
     && apt-get autoclean \
@@ -23,7 +28,6 @@ WORKDIR /app
 
 #克隆项目到文件夹
 RUN git clone https://github.com/Wanghaohun/jbt_blog.git
-COPY 'nginx.conf' '/etc/nginx/nginx.conf'
 #安装所需库
 WORKDIR /app/jbt_blog
 RUN mkdir /app/jbt_blog/jbt_blog/log
@@ -35,8 +39,9 @@ RUN pip3 install -Ur requirements.txt
 RUN pip3 install gunicorn
 RUN nginx -t
 RUN service nginx restart
-CMD ["/bin/bash"]
+CMD ["/bin/bash"] #gunicorn -w 3 -b 0.0.0.0:8000 jbt_blog.wsgi:application
 
 # PORT 端口映射设置
 EXPOSE 8000
+EXPOSE 443
 EXPOSE 80
