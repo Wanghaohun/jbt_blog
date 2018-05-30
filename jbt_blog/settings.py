@@ -74,7 +74,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jbt_blog.wsgi.application'
 
-
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = True
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
