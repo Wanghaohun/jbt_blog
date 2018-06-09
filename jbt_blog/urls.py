@@ -30,7 +30,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
-    path('search/', views.MySearchView()),
+    path('search/', views.MySearchView(),name='search_page'),
 ]
 
 if settings.DEBUG:

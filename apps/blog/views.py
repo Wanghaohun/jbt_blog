@@ -106,3 +106,22 @@ def archives(request, year, month):
     )
 class MySearchView(SearchView):
     template = 'search.html'
+    def get_context(self):
+        (paginator, page) = self.build_page()
+
+        context = {
+            'query': self.query,
+            'form': self.form,
+            'page': page,
+            'paginator': paginator,
+            'suggestion': None,
+            'category_list': categories,
+            'months': months
+        }
+
+        if hasattr(self.results, 'query') and self.results.query.backend.include_spelling:
+            context['suggestion'] = self.form.get_suggestion()
+
+        context.update(self.extra_context())
+
+        return context
