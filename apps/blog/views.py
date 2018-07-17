@@ -7,8 +7,7 @@ from haystack.views import SearchView
 
 categories = Category.objects.all()  # 获取全部的分类对象
 tags = Tag.objects.all()  # 获取全部的标签对象
-months = Article.objects.datetimes('pub_time', 'month', order='DESC')
-
+months = Article.objects.datetimes('pub_time', 'month', order='DESC')[:2]
 
 # Create your views here.
 def home(request):  # 主页
